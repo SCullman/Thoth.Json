@@ -188,7 +188,7 @@ module Decode =
             else (path, BadPrimitive("an uint32", value)) |> Error
 
     let unit : Decoder<unit> =
-        fun _ _ -> () |> Ok
+        fun _ _ -> failwith "Unit can't be decoded"
 
     let uint64 : Decoder<uint64> =
         fun path value ->

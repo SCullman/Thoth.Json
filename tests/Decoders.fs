@@ -2198,12 +2198,6 @@ Expecting a boolean but instead got: "not_a_boolean"
                 let json = Encode.Auto.toString(4, value)
                 let res = Decode.Auto.unsafeFromString<int option>(json)
                 equal value res
-            
-            testCase "Auto decoders works for Unit" <| fun _ ->
-                let value = ()
-                let json = Encode.Auto.toString(4, value)
-                let res = Decode.Auto.unsafeFromString(json)
-                equal value res
 
             testCase "Auto decoders works for Enum" <| fun _ ->
                 let value = IntEnum.One
@@ -2372,7 +2366,7 @@ Expecting a boolean but instead got: "not_a_boolean"
                 |> equal (Ok vater)
 
             testCase "Auto.unsafeFromString works for unit" <| fun _ -> 
-                let res = Decode.Auto.unsafeFromString<unit>("")
+                let res = Decode.Auto.unsafeFromString<unit>(System.String.Empty)
                 equal () res
         ]
     ]

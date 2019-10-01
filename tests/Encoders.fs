@@ -68,10 +68,10 @@ let tests : Test =
                     |> Encode.toString 0
                 equal expected actual
 
-            testCase "unit works" <| fun _ ->
-                let expected = ""
+            testCase "empty string works" <| fun _ ->
+                let expected = "\"\""
                 let actual =
-                    Encode.unit ()
+                    Encode.string ""
                     |> Encode.toString 0
                 equal expected actual
 
